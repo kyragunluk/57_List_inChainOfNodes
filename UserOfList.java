@@ -25,5 +25,21 @@ public class UserOfList {
         }
         System.out.println( "populated list: " + list
                           + System.lineSeparator());
-    }
+        //Tests
+    		list.set(2,"a");
+    		System.out.println("testing set method, expecting Stay: " + list);
+    		System.out.println("testing get method, expectint a: " + list.get(2));
+    		list.add(3, "d");
+    		System.out.println("testing add in middle, expecting Stady: " + list);
+    		list.add(0, "!");
+    		System.out.println("testing add at beginning, expecting !Stady: " + list);
+    		list.add(6, "!");
+    		System.out.println("testing add at end, expecting !Stady!: " + list);
+    		list.remove(0);
+    		System.out.println("remove method, at start, expecting Stady!: " + list);
+    		list.remove(3);
+    		System.out.println("remove method, at middle, expecting Stay!: " + list);
+    		list.remove(1);
+    		System.out.println("remove method, at end, expecting Say!: " + list);
+        }
 }
