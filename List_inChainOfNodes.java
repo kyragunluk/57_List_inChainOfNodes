@@ -54,7 +54,8 @@ public class List_inChainOfNodes{
         return true;
      }
 
-     public void set(int index, Object val){
+     public Object set(int index, Object val){
+         Object returnValue = get(index);
      		 Node thisNode;
          int i;
      		 for (i = 0, thisNode = headReference;
@@ -62,6 +63,7 @@ public class List_inChainOfNodes{
               i++, thisNode = thisNode.getReferenceToNextNode())
               ;
      		 thisNode.setCargoReference(val);
+         return returnValue;
      	 }
 
 
@@ -87,9 +89,7 @@ public class List_inChainOfNodes{
                for (i = 0, thisNode = headReference;
                     i <= (index - 1);
                     i++, thisNode = thisNode.getReferenceToNextNode())
-                    ;for (int i = 0; i <= (index - 1) ; i ++){
-         				  thisNode = thisNode.getReferenceToNextNode();
-         		   }
+                    ;
          			 Node anotherNode = thisNode.getReferenceToNextNode();
          			 thisNode.setReferenceToNextNode(otherNode);
          			 otherNode.setReferenceToNextNode(anotherNode);
@@ -102,10 +102,12 @@ public class List_inChainOfNodes{
        		 if (index == 0)
        			   headReference = headReference.getReferenceToNextNode();
        		 else{
-         			Node thisNode = headReference;
-         			for (int i = 0; i <= index - 1; i ++){
-         				thisNode = thisNode.getReferenceToNextNode();
-       		    }
+               Node thisNode;
+               int i;
+               for (i = 0, thisNode = headReference;
+                    i <= (index - 1);
+                    i++, thisNode = thisNode.getReferenceToNextNode())
+                    ;
        		 Node nextNode = thisNode.getReferenceToNextNode();
        		 thisNode.setReferenceToNextNode(nextNode.getReferenceToNextNode());
        		 }
